@@ -1,0 +1,4 @@
+Mountain_pass/.env
+/.idea
+/venv
+main.py
