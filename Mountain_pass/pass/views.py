@@ -1,8 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from rest_framework import viewsets
 from rest_framework.response import Response
 from .models import PassAdded
 from .serializers import *
+
+
+def reverse_to_submit(request):
+    return redirect('submitData')
 
 
 class PassageAPIView(viewsets.ViewSet):
