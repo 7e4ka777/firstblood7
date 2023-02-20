@@ -4,6 +4,8 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from .models import PassAdded
 from .serializers import *
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 
 def reverse_to_submit(request):
@@ -27,6 +29,7 @@ class PassageAPIView(viewsets.ViewSet):
             return serializer.save()
         else:
             return self.serializer_error_response(serializer.errors)
+    @swagger_auto_schema(methods=['post'], request_body=PassAddedSerializer)
     def post(self, request):
         try:
             data = request.data
@@ -68,3 +71,14 @@ class PassageAPIView(viewsets.ViewSet):
 
         except Exception as e:
             return Response({'message': str(e), 'id': None}, status=500)
+
+    @swagger_auto_schema(manual_parameters=[
+        openapi.Parameter('user_email', openapi.IN_QUERY, description="user e-mail", type=openapi.TYPE_STRING)])
+    def get_records_by_user(self, request, **kwargs):
+        try:
+            user = User.objects.get(email=request.GET['user_email'])
+            passages = PassAdded.objects.filter(user=user)
+            data = PassAddedSerializer(passages, many=True).data
+            return Response(data, status=200)
+        except:
+            return Response({'message': 'No records found'}, status=200)
