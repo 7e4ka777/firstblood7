@@ -6,6 +6,7 @@ from .models import PassAdded
 from .serializers import *
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+from rest_framework.decorators import api_view
 
 
 def reverse_to_submit(request):
@@ -29,7 +30,9 @@ class PassageAPIView(viewsets.ViewSet):
             return serializer.save()
         else:
             return self.serializer_error_response(serializer.errors)
+
     @swagger_auto_schema(methods=['post'], request_body=PassAddedSerializer)
+    @api_view(['POST'])
     def post(self, request):
         try:
             data = request.data
