@@ -8,7 +8,7 @@ class User(models.Model):
     phone = models.CharField(max_length=25)
 
     class Meta:
-        db_table = 'pereval_user'
+        db_table = 'pass_user'
 
 
 class Coords(models.Model):
@@ -17,20 +17,20 @@ class Coords(models.Model):
     height = models.IntegerField()
 
     class Meta:
-        db_table = 'pereval_coords'
+        db_table = 'pass_coords'
 
 
 class Level(models.Model):
-    winter_level = models.CharField(max_length=2, blank=True)
-    summer_level = models.CharField(max_length=2, blank=True)
-    autumn_level = models.CharField(max_length=2, blank=True)
-    spring_level = models.CharField(max_length=2, blank=True)
+    winter_level = models.CharField(max_length=3, blank=True)
+    summer_level = models.CharField(max_length=3, blank=True)
+    autumn_level = models.CharField(max_length=3, blank=True)
+    spring_level = models.CharField(max_length=3, blank=True)
 
     class Meta:
-        db_table = 'pereval_level'
+        db_table = 'pass_level'
 
 
-class PerevalAdded(models.Model):
+class PassAdded(models.Model):
     ADDED_STATUS = [
         ('new', 'новая заявка'),
         ('pending', 'на рассмотрении'),
@@ -50,15 +50,15 @@ class PerevalAdded(models.Model):
     status = models.CharField(max_length=8, choices=ADDED_STATUS, default='new')
 
     class Meta:
-        db_table = 'pereval_pereval_added'
+        db_table = 'pass_passadded'
 
 
 class Images(models.Model):
-    pereval = models.ForeignKey(PerevalAdded, related_name='images', on_delete=models.CASCADE)
+    pereval = models.ForeignKey(PassAdded, related_name='images', on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=20)
     data = models.BinaryField()
 
     class Meta:
-        db_table = 'pereval_images'
+        db_table = 'pass_images'
 
