@@ -30,3 +30,43 @@ POST /submitData/
 ```
 принимает JSON в теле запроса с информацией о перевале. <br> 
 Пример JSON:
+{
+    "beauty_title": "пер.",
+    "title": "Пере",
+    "other_titles": "Вал",
+    "connect": "0",
+    "add_time": "2023-02-20 00:13:14",
+    "user": {
+        "email": "ex@ex.com",
+        "fam": "Петров",
+        "name": "Петр",
+        "otc": "Петрович",
+        "phone": "+7 977 777-77-77"
+    },
+    "coords": {
+        "latitude": "32.3476",
+        "longitude": "11.3765",
+        "height": "2300"
+    },
+    "level": {
+        "winter": "2А",
+        "summer": "1А*",
+        "autumn": "1А",
+        "spring": "2A*"
+    },
+    "images": [
+        {
+            "data": "<картинка1>",
+            "title": "Основание"
+        },
+        {
+            "data": "<картинка>",
+            "title": "Седло"
+        },
+        {
+            "data": "<картинка2>",
+            "title": "Обрыв"
+        }
+    ]
+}
+```
