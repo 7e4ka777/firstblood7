@@ -1,6 +1,6 @@
-<h3 align="center">Проект по разработке мобильного приложения для ФСТР</h3>
-<h1 align="center">Hi there, I'm <a href="https://github.com/7e4ka777" target="_blank">Ilya</a> 
-<img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
+<h1 align="center">Проект по разработке мобильного приложения для ФСТР</h1>
+<h2 align="center">Hi there, I'm <a href="https://github.com/7e4ka777" target="_blank">Ilya</a> 
+<img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h2>
 <h3 align="center">Computer science student</h3>
 Задача всего проекта: разработать мобильное приложение для Android и IOS, которое упростило бы туристам задачу по отправке данных о перевале и сократило время обработки запроса до трёх дней.
 Пользоваться мобильным приложением будут туристы. В горах они будут вносить данные о перевале в приложение и отправлять их в ФСТР (Федерация спортивного туризма России), как только появится доступ в Интернет.
